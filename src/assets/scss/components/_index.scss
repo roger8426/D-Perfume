@@ -1,0 +1,21 @@
+.bg-home {
+  background-image: url("../images/index1.jpg");
+  background-size: cover;
+  height: 870px;
+  width: 100%;
+}
+
+.home-img {
+  height: 555px;
+
+  &-l {
+    height: 1080px;
+  }
+}
+
+.scroll {
+  img {
+    height: 540px;
+  }
+}
+

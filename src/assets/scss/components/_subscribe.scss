@@ -1,0 +1,18 @@
+.bg-scribe {
+    background-image: url("../images/index10.jpg");
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+  
+    .container {
+      height: 40%
+    }
+  
+    input {
+      width: 65%;
+    }
+  
+    button {
+      width: 35%;
+    }
+  }
