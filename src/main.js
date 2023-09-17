@@ -1,15 +1,17 @@
-import './assets/scss/all.scss'
-import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+import './assets/scss/all.scss';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import App from './App.vue'
+import Home from './HomePage.vue'
 import router from './router'
 
-const app = createApp(App)
+const app = createApp(Home)
 
 app.use(createPinia())
 app.use(router)
