@@ -23,7 +23,7 @@ git commit -m 'deploy'
 # if you are deploying to https://roger8426.github.io
 # git push -f git@github.com:roger8426/roger8426.github.io.git main
 
-# if you are deploying to https://roger8426.github.io/D-Perfume/user/D-Perfume
-git push -f git@github.com:roger8426/D-Perfume/user/D-Perfume.git main:gh-pages
+# if you are deploying to https://roger8426.github.io/D-Perfume
+git push -f git@github.com:roger8426/D-Perfume.git main:gh-pages
 
 cd -
