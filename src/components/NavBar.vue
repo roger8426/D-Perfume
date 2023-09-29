@@ -18,7 +18,7 @@
                         <a class="d-flex link-secondary ms-3 me-3" data-bs-toggle="offcanvas" href="#offcanvasExample"
                             role="button" aria-controls="offcanvasExample">
                             <i class="bi bi-heart-fill me-1"></i>
-                            <p class="mb-0" v-if="!wishList">Wishlist</p>
+                            <p class="mb-0" v-if="wishList.length == 0">Wishlist</p>
                             <p class="mb-0" v-else>{{ `Wishlist(${wishList.length})` }}</p>
                         </a>
                     </li>
