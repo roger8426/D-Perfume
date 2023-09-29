@@ -2,7 +2,9 @@
     <div class="container px-0">
         <div class="row py-2">
             <div class="col-6">
-                <img src="../assets/images/d’Perfume.png" alt="LOGO" />
+                <router-link to="/user/D-Perfume">
+                    <img src="../assets/images/d’Perfume.png" alt="LOGO" />
+                </router-link>
             </div>
             <div class="col-6">
                 <ul class="h-100 d-flex justify-content-end align-items-center mb-0">
@@ -46,7 +48,7 @@ export default {
             this.$http.post(api, this.user)
                 .then((res) => {
                     if (res.data.success) {
-                        this.$router.push('/login')
+                        this.$router.push('/user/login')
                     }
                 })
         }

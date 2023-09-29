@@ -77,7 +77,9 @@
               the most important operations that should be performed immediately.</p>
           </li>
         </ol>
-        <a href="#" class="btn btn-outline-dark rounded-pill fs-4 mt-6 mx-110 py-3">Plan a free online training</a>
+        <button class="btn btn-outline-dark rounded-pill fs-4 mt-6 mx-110 py-3" @click="scrollBottom">
+          Plan a free online training
+        </button>
       </div>
     </div>
   </div>
@@ -85,19 +87,25 @@
     <div class="container px-0 py-3 scroll">
       <div class="row">
         <div class="col-4">
-          <img src="../assets/images/index6.jpg" class="w-100" alt="product">
+          <router-link to="/user/product/-NfBPt_Wn1mHDs-yGtoK">
+            <img src="../assets/images/index6.jpg" class="w-100" alt="product">
+          </router-link>
           <h4 class="mb-0 fw-bold">Poppy & Barley</h4>
           <p class="mb-3">Jo Malone</p>
           <p>NT$1,380</p>
         </div>
         <div class="col-4">
-          <img src="../assets/images/index7.jpg" class="w-100" alt="product">
+          <router-link to="/user/product/-NfBQaF6RQ6Muk5zu7pB">
+            <img src="../assets/images/index7.jpg" class="w-100" alt="product">
+          </router-link>
           <h4 class="mb-0 fw-bold">Body Wash</h4>
           <p class="mb-3">Curology</p>
           <p>NT$1,580</p>
         </div>
         <div class="col-4">
-          <img src="../assets/images/index8.jpg" class="w-100" alt="product">
+          <router-link to="/user/product/-NfBwUp2U8fWL0g8MzJ-">
+            <img src="../assets/images/index8.jpg" class="w-100" alt="product">
+          </router-link>
           <h4 class="mb-0 fw-bold">Apple Cider Vinegar Capsule</h4>
           <p class="mb-3">Tonik</p>
           <p>NT$1,580</p>
@@ -118,7 +126,6 @@
           planted more than 860 pine trees for a better environment.For the past 10 years, we have collected over
           800,000 bottles through Empty Bottle Recycling Campaign and planted more than 860 pine trees for a better
           environment.</p>
-        <a href="#" class="link-primary fw-bold">查看更多</a>
       </div>
     </div>
   </div>
@@ -131,6 +138,15 @@ import Subscribe from '../components/SubScribe.vue'
 export default {
   components: {
     Subscribe
+  },
+  methods: {
+    scrollBottom() {
+      const height = document.body.scrollHeight
+      window.scrollTo({
+        top: height,
+        behavior: 'smooth'
+      })
+    }
   }
 }
 </script>

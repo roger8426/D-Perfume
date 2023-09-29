@@ -3,14 +3,23 @@
         <div class="container">
             <div class="row text-light">
                 <div class="col-6 d-flex align-items-center">
-                    <a href="#" class="me-3"><img src="../assets/images/d’Perfumewhite.png" alt="LOGO"></a>
+                    <RouterLink to="/user/D-Perfume" class="me-3">
+                        <img src="../assets/images/d’Perfumewhite.png" alt="LOGO">
+                    </RouterLink>
                     <p class="fs-6 mb-0 ms-1">© 2020. All Rights Reserved.</p>
                 </div>
                 <div class="col-6">
                     <ul class="mb-0 h-100 d-flex justify-content-end align-items-center">
-                        <li><a href="#" class="btn btn-primary fs-4 me-4">Product</a></li>
-                        <li><a href="#" class="btn btn-primary fs-4 ms-1 me-4">Blog</a></li>
-                        <li><a href="#" class="btn btn-primary fs-4 ms-1">Contact</a></li>
+                        <li>
+                            <RouterLink to="/user/products">
+                                <a href="#" class="btn btn-primary fs-4 me-4">Product</a>
+                            </RouterLink>
+                        </li>
+                        <li>
+                            <RouterLink to="/user/login">
+                                <a href="#" class="btn btn-primary fs-4 ms-1">Dev Login</a>
+                            </RouterLink>
+                        </li>
                     </ul>
                 </div>
             </div>

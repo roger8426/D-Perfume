@@ -15,8 +15,7 @@
                     <input type="number" class="border-primary border-1 rounded-0 rounded-start py-3 ps-4 w-50" min="1"
                         v-model="qty">
                     <button type="button" class="btn btn-primary p-0 rounded-0 rounded-end py-3 w-50" @click="addCart">
-                        <div class="spinner-border spinner-border-sm text-dark me-1" role="status"
-                            v-if="this.btnLoading === this.id">
+                        <div class="spinner-border spinner-border-sm text-dark me-1" role="status" v-if="this.btnLoading">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                         加入購物車
@@ -45,9 +44,11 @@ export default {
             id: '',
             qty: 1,
             isLoading: false,
-            btnLoading: ''
+            btnLoading: false,
+            cartNum: 0
         }
     },
+    inject: ['emitter'],
     methods: {
         getProduct() {
             this.isLoading = true
@@ -65,10 +66,16 @@ export default {
                 product_id: this.id,
                 qty: this.qty
             }
-            this.btnLoading = this.$route.params.productId
+            this.btnLoading = true
             this.$http.post(api, { data: cart }).then((res) => {
                 if (res.data.success) {
-                    this.btnLoading = ''
+                    this.$http.get(api).then((res) => {
+                        if (res.data.success) {
+                            this.cartNum = res.data.data.carts.length
+                            this.emitter.emit('cart-num', this.cartNum)
+                            this.btnLoading = false
+                        }
+                    })
                 }
             })
         }

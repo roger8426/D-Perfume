@@ -39,7 +39,7 @@
             </tbody>
         </table>
     </div>
-    <PageEmp :pages="pagination" @emit-page="getProducts" @pre-page="getProducts"></PageEmp>
+    <Page :pages="pagination" @emit-page="getProducts"></Page>
     <ProductModal ref="productModal" :product="tempProduct" @update-product="updateProduct"></ProductModal>
     <DelModal ref="delModal" :item="tempProduct" @del-item="delProduct"></DelModal>
 </template>
@@ -47,7 +47,7 @@
 <script>
 import DelModal from '../components/DeleteModal.vue'
 import ProductModal from '../components/ProductModal.vue'
-import PageEmp from '../components/PageEmp.vue'
+import Page from '../components/PageComponent.vue'
 
 export default {
     data() {
@@ -62,7 +62,7 @@ export default {
     components: {
         ProductModal,
         DelModal,
-        PageEmp
+        Page
     },
     inject: ['emitter'],
     methods: {
@@ -74,6 +74,7 @@ export default {
                     if (res.data.success) {
                         this.products = res.data.products
                         this.pagination = res.data.pagination
+                        console.log(this.pagination);
                     }
                 })
         },

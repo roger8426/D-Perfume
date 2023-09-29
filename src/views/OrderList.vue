@@ -15,9 +15,9 @@
             <tbody>
                 <template v-for="(item, key) in orders" :key="key">
                     <tr v-if="orders.length" :class="{ 'text-secondary': !item.is_paid }">
-                        <td>{{ $filters.date(item.create_at) }}</td>
-                        <td><span v-text="item.user.email" v-if="item.user"></span></td>
-                        <td>
+                        <td class="pb-0">{{ $filters.date(item.create_at) }}</td>
+                        <td class="pb-0"><span v-text="item.user.email" v-if="item.user"></span></td>
+                        <td class="pb-0">
                             <ul class="list-unstyled">
                                 <li v-for="(product, i) in item.products" :key="i">
                                     {{ product.product.title }} 數量：{{ product.qty }}
@@ -25,8 +25,8 @@
                                 </li>
                             </ul>
                         </td>
-                        <td class="text-right">{{ item.total }}</td>
-                        <td>
+                        <td class="text-right pb-0">{{ item.total }}</td>
+                        <td class="pb-0">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" :id="`paidSwitch${item.id}`"
                                     v-model="item.is_paid" @change="updatePaid(item)">
@@ -36,10 +36,12 @@
                                 </label>
                             </div>
                         </td>
-                        <td>
+                        <td class="pb-0">
                             <div class="btn-group">
-                                <button class="btn btn-outline-primary btn-sm" @click="openModal(item)">檢視</button>
-                                <button class="btn btn-outline-danger btn-sm" @click="openDelOrderModal(item)">刪除</button>
+                                <button class="btn btn-outline-primary btn-sm"
+                                @click="openModal(item)">檢視</button>
+                                <button class="btn btn-outline-danger btn-sm"
+                                @click="openDelOrderModal(item)">刪除</button>
                             </div>
                         </td>
                     </tr>
@@ -55,7 +57,7 @@
 <script>
 import DelModal from '../components/DeleteModal.vue'
 import OrderModal from '../components/OrderModal.vue'
-import Pagination from '../components/PageEmp.vue'
+import Pagination from '../components/PageComponent.vue'
 export default {
     data() {
         return {
@@ -81,8 +83,7 @@ export default {
                 this.orders = res.data.orders
                 this.pagination = res.data.pagination
                 this.isLoading = false
-                console.log(this.orders);
-            });
+            })
         },
         openModal(item) {
             this.tempOrder = { ...item }
