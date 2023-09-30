@@ -21,7 +21,7 @@
                         加入購物車
                     </button>
                 </div>
-                <button type="button" class="btn text-primary p-0 mt-3 me-2 w-50">
+                <button type="button" class="btn text-primary p-0 mt-3 me-2 w-50" @click="addWish">
                     <i class="bi bi-heart-fill me-1"></i>
                     加入收藏清單
                 </button>
@@ -45,7 +45,8 @@ export default {
             qty: 1,
             isLoading: false,
             btnLoading: false,
-            cartNum: 0
+            cartNum: 0,
+            wishList: {}
         }
     },
     inject: ['emitter'],
@@ -78,11 +79,18 @@ export default {
                     })
                 }
             })
+        },
+        addWish() {
+            console.log(this.wishList);
         }
     },
     created() {
         this.id = this.$route.params.productId
         this.getProduct()
+        this.emitter.on('wishList', (wishList) => {
+            this.wishList = wishList
+            console.log(this.wishList);
+        })
     }
 }
 </script>

@@ -17,6 +17,9 @@ export default {
         return {
             emitter
         }
-    }
+    },
+    created() {
+        this.$router.push('/user/D-Perfume')
+    },
 }
 </script>

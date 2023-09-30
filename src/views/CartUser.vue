@@ -53,7 +53,8 @@
                     <div class="input-group input-group-sm w-50">
                         <input type="text" class="form-control" placeholder="請輸入優惠碼" v-model="couponCode">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="button" @click="addCoupon">
+                            <button class="btn btn-outline-primary" type="button" @click="addCoupon"
+                            :class="{disabled: !couponCode}">
                                 套用優惠碼
                             </button>
                         </div>
@@ -158,7 +159,6 @@ export default {
             this.$http.get(api, this.tempProduct).then((res) => {
                 this.orders = res.data.orders
                 this.isLoading = false
-                console.log(this.orders);
             })
         },
         delCart(id) {
@@ -198,6 +198,8 @@ export default {
                 if (res.data.success) {
                     this.couponCode = ''
                     this.getCart()
+                } else {
+                    alert(res.data.message)
                 }
             })
         },

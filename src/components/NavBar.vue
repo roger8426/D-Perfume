@@ -18,8 +18,8 @@
                         <a class="d-flex link-secondary ms-3 me-3" data-bs-toggle="offcanvas" href="#offcanvasExample"
                             role="button" aria-controls="offcanvasExample">
                             <i class="bi bi-heart-fill me-1"></i>
-                            <p class="mb-0" v-if="wishList.length == 0">Wishlist</p>
-                            <p class="mb-0" v-else>{{ `Wishlist(${wishList.length})` }}</p>
+                            <p class="mb-0" v-if="!wishList.length">Wishlist</p>
+                            <p class="mb-0" v-else-if="wishList.length">{{ `Wishlist(${wishList.length})` }}</p>
                         </a>
                     </li>
                     <li class="d-flex">
@@ -120,7 +120,6 @@ export default {
         this.cartNumber()
         this.emitter.on('wishList', (products) => {
             this.wishList = products
-            console.log(this.wishList);
         })
     },
 }

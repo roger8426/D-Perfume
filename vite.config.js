@@ -15,6 +15,6 @@ export default defineConfig({
   server: {
     host: 'localhost', 
     port: 5173,
-    open: '/D-Perfume/#/user/D-Perfume'
+    open: '/D-Perfume/#/'
   }
 })
