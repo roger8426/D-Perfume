@@ -1,35 +1,26 @@
-# d-perfume-project
+# D-Perfume專案簡介
 
-This template should help get you started developing with Vue 3 in Vite.
+D-Perfume以Vue3框架為核心，並使用Vue Router進行路由管理，以及Vite系統進行前端建構，與Bootstrap5所開發的包含前後台的香水電商平台。
 
-## Recommended IDE Setup
+## 前台功能（含RWD）
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+專案首頁：品牌介紹。  
+商品頁：包含商品列表及分頁功能、購物車及願望清單快捷鍵。  
+單一商品資訊：商品詳細資訊、購物車及願望清單快捷鍵。  
+購物車以及訂單管理功能：購物車檢視及修改、套用優惠券功能以及訂單的建立與查詢。  
 
-## Customize configuration
+## 後台功能
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+商品、訂單及優惠券的增修查改功能。
 
-## Project Setup
+## 相關技術
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Vue3 Js（Option API串接）  
+Vite前端建構系統  
+Vue Router路由管理  
+Vue Loading Overlay 讀取套件  
+VeeValidate 表單驗證套件  
+SCSS預處理器  
+Bootstrap5  
+Axios網路請求工具  
+Emitter跨元件資料傳遞工具  
