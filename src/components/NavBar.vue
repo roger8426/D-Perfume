@@ -5,60 +5,50 @@
                 <RouterLink to="/user/D-Perfume"><img src="../assets/images/d’Perfume.png" alt="LOGO"></RouterLink>
             </div>
             <div class="col-6">
-                <ul class="h-100 d-md-flex d-sm-none justify-content-end align-items-center mb-0">
+                <ul class="h-100 d-flex justify-content-end align-items-center mb-0">
                     <li>
                         <RouterLink to="/user/products">
-                            <a href="#" class="d-flex link-secondary me-3">
+                            <a href="#" class="d-flex link-secondary me-sm-3">
                                 <i class="bi bi-shop me-1"></i>
-                                <p class="mb-0">Products</p>
+                                <p class="mb-0 d-sm-none d-md-inline">Products</p>
                             </a>
                         </RouterLink>
                     </li>
                     <li>
-                        <a class="d-flex link-secondary ms-3 me-3" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                        <a class="d-flex link-secondary ms-md-3 me-sm-3" data-bs-toggle="offcanvas" href="#offcanvasExample"
                             role="button" aria-controls="offcanvasExample">
-                            <i class="bi bi-heart-fill me-1"></i>
-                            <p class="mb-0" v-if="!wishList.length">Wishlist</p>
-                            <p class="mb-0" v-else-if="wishList.length">{{ `Wishlist(${wishList.length})` }}</p>
+                            <i class="bi bi-heart-fill me-1">
+                                <span class="bg-primary text-light rounded px-1 fst-normal icon-num d-md-none"
+                                    v-if="wishList">{{ wishList.length }}</span>
+                            </i>
+                            <div class="d-sm-none d-md-inline">
+                                <p class="mb-0" v-if="!wishList.length">Wishlist</p>
+                                <p class="mb-0" v-else-if="wishList.length">{{ `Wishlist(${wishList.length})` }}</p>
+                            </div>
                         </a>
                     </li>
-                    <li class="d-flex">
+                    <li>
                         <router-link to="/user/cart">
-                            <a href="#" class="d-flex link-secondary ms-3">
-                                <i class="bi bi-cart2 me-1"></i>
-                                <p class="mb-0" v-if="cartNum">{{ `Cart(${cartNum})` }}</p>
-                                <p class="mb-0" v-else>Cart</p>
+                            <a href="#" class="d-flex link-secondary ms-md-3 me-sm-3 me-md-0">
+                                <i class="bi bi-cart2 me-1">
+                                    <span class="bg-primary text-light rounded px-1 fst-normal icon-num d-md-none"
+                                        v-if="cartNum">{{ cartNum }}</span>
+                                </i>
+                                <div class="d-sm-none d-md-inline">
+                                    <p class="mb-0" v-if="cartNum">{{ `Cart(${cartNum})` }}</p>
+                                    <p class="mb-0" v-else>Cart</p>
+                                </div>
                             </a>
                         </router-link>
                     </li>
+                    <li class="d-md-none">
+                        <RouterLink to="/user/login">
+                            <a href="#" class="d-flex link-secondary ms-md-3 me-sm-3 me-md-0">
+                                <i class="bi bi-person-circle"></i>
+                            </a>
+                        </RouterLink>
+                    </li>
                 </ul>
-                <div class="d-flex justify-content-end d-md-none">
-                    <router-link to="/user/cart">
-                        <button class="btn py-0 fs-5" type="button">
-                            <i class="bi bi-cart2 me-1">
-                                <span class="bg-primary text-light rounded px-1 cart-num fst-normal" v-if="cartNum">{{
-                                    cartNum }}</span>
-                            </i>
-                        </button>
-                    </router-link>
-                    <div class="dropdown text-end d-md-none dropend">
-                        <button class="btn py-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-list fs-2"></i>
-                        </button>
-                        <ul class="dropdown-menu bg-gray rounded-0 py-0 text-center" aria-labelledby="dropdownMenuButton1">
-                            <li class="border-top border-1 border-light">
-                                <a class="dropdown-item text-light my-1" href="#">Products</a>
-                            </li>
-                            <li class="border-top border-1 border-light">
-                                <a class="dropdown-item text-light my-1" href="#">Wishlist</a>
-                            </li>
-                            <li class="border-top border-bottom border-1 border-light">
-                                <a class="dropdown-item text-light my-1" href="#">Dev Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -97,7 +87,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
     <LoadingView :active="isLoading"></LoadingView>
-    <div class="bg-primary d-sm-none d-md-block">
+    <div class="bg-primary">
         <div class="container px-0">
             <div class="col">
-                <ul class="d-flex mb-0 ps-0">
+                <ul class="d-flex mb-0 ps-0 d-sm-none d-md-flex">
                     <li v-for="(item, key) in brand" :key="key">
                         <button type="button" class="btn btn-primary" @click="getProducts(item)">{{ item }}</button>
                     </li>
@@ -11,6 +11,20 @@
                         <button type="button" class="btn btn-primary" @click="getProducts(item)">ALL</button>
                     </li>
                 </ul>
+                <div class="dropdown d-sm-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Brand Select
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li v-for="(item, key) in brand" :key="key">
+                            <button class="dropdown-item" type="button" @click="getProducts(item)">{{ item }}</button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item" @click="getProducts(item)">ALL</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
