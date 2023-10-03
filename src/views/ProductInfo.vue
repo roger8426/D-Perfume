@@ -81,7 +81,7 @@ export default {
             })
         },
         addWish() {
-            // this.emitter.$emit('emit-wish-from-info', this.product)
+            this.emitter.$emit('emit-wish-from-info', this.product)
         }
     },
     created() {

@@ -16,7 +16,7 @@
                     </li>
                     <li>
                         <a class="d-flex link-secondary ms-md-3 me-sm-3" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                            role="button" aria-controls="offcanvasExample">
+                            role="button" aria-controls="offcanvasExample" @click="test">
                             <i class="bi bi-heart-fill me-1">
                                 <span class="bg-primary text-light rounded px-1 fst-normal icon-num d-md-none"
                                     v-if="wishList">{{ wishList.length }}</span>
@@ -76,7 +76,7 @@
                                     <i class="bi bi-x"></i>
                                 </button>
                             </th>
-                            <td>{{ item.title }}</td>
+                            <td><button type="button" class="btn p-0" @click="getProduct(item.id)">{{ item.title }}</button></td>
                             <td>{{ item.price }}</td>
                             <td>
                                 <button type="button" class="btn text-primary p-0 ms-1" @click="addCart(item.id)">
@@ -97,7 +97,7 @@ export default {
         return {
             cartNum: 0,
             wishNum: 0,
-            tempWish: [],
+            tempWish: {},
             wishList: [],
             btnLoading: false
         }
@@ -129,6 +129,9 @@ export default {
         },
         delWish(key) {
             this.wishList.splice(key, 1)
+        },
+        getProduct(id) {
+            this.$router.push(`/user/product/${id}`)
         }
     },
     created() {
@@ -138,6 +141,9 @@ export default {
         this.cartNumber()
         this.emitter.on('emit-wish-from-nav', (products) => {
             this.wishList = products
+        })
+        this.emitter.on('emit-wish-from-info', (product) => {
+            this.tempWish = product
         })
     },
 }

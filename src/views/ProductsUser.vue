@@ -77,7 +77,8 @@ export default {
             btnLoading: false,
             cartNum: 0,
             pageData: {},
-            wishList: []
+            wishList: [],
+            wishList2: {}
         }
     },
     inject: ['emitter'],
