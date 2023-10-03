@@ -1,6 +1,6 @@
 <template>
     <LoadingView :active="isLoading"></LoadingView>
-    <div class="bg-primary">
+    <div class="bg-primary d-sm-none d-md-block">
         <div class="container px-0">
             <div class="col">
                 <ul class="d-flex mb-0 ps-0">
@@ -14,9 +14,9 @@
             </div>
         </div>
     </div>
-    <div class="container productsList mt-7 mb-6">
+    <div class="container productsList mt-md-7 mt-sm-4 mb-6">
         <div class="row">
-            <div class="col-3 mb-6" v-for="item in nowProducts" :key="item.id">
+            <div class="col-lg-3 col-sm-6 mb-6" v-for="item in nowProducts" :key="item.id">
                 <button type="button" class="w-100 p-0 border-0 mb-1" @click="getProduct(item.id)">
                     <img :src="item.imageUrl" class="w-100" alt="product">
                 </button>

@@ -1,8 +1,8 @@
 <template>
     <div class="bg-scribe w-100 d-flex align-items-end">
-        <div class="container px-0">
+        <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4 col-md-5">
                     <h2 class="text-secondary mb-1">記得<br>訂閱以獲取更多資訊！</h2>
                     <form action="" class="d-flex mt-3" @submit.prevent="getCoupon" v-if="!email">
                         <label for="scrEmail"></label>

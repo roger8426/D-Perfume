@@ -1,16 +1,16 @@
 <template>
-    <div class="container px-0">
+    <div class="container">
         <div class="row py-2">
             <div class="col-6">
                 <RouterLink to="/user/D-Perfume"><img src="../assets/images/d’Perfume.png" alt="LOGO"></RouterLink>
             </div>
             <div class="col-6">
-                <ul class="h-100 d-flex justify-content-end align-items-center mb-0">
+                <ul class="h-100 d-md-flex d-sm-none justify-content-end align-items-center mb-0">
                     <li>
                         <RouterLink to="/user/products">
                             <a href="#" class="d-flex link-secondary me-3">
                                 <i class="bi bi-shop me-1"></i>
-                                <p class="mb-0">Product</p>
+                                <p class="mb-0">Products</p>
                             </a>
                         </RouterLink>
                     </li>
@@ -32,6 +32,33 @@
                         </router-link>
                     </li>
                 </ul>
+                <div class="d-flex justify-content-end d-md-none">
+                    <router-link to="/user/cart">
+                        <button class="btn py-0 fs-5" type="button">
+                            <i class="bi bi-cart2 me-1">
+                                <span class="bg-primary text-light rounded px-1 cart-num fst-normal" v-if="cartNum">{{
+                                    cartNum }}</span>
+                            </i>
+                        </button>
+                    </router-link>
+                    <div class="dropdown text-end d-md-none dropend">
+                        <button class="btn py-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-list fs-2"></i>
+                        </button>
+                        <ul class="dropdown-menu bg-gray rounded-0 py-0 text-center" aria-labelledby="dropdownMenuButton1">
+                            <li class="border-top border-1 border-light">
+                                <a class="dropdown-item text-light my-1" href="#">Products</a>
+                            </li>
+                            <li class="border-top border-1 border-light">
+                                <a class="dropdown-item text-light my-1" href="#">Wishlist</a>
+                            </li>
+                            <li class="border-top border-bottom border-1 border-light">
+                                <a class="dropdown-item text-light my-1" href="#">Dev Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

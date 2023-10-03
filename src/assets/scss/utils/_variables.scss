@@ -301,6 +301,7 @@ $cyans: (
 $primary:       #916019 !default;
 $secondary:     #8D8D8D !default;
 $success:        $green !default;
+$gray:          #707070 !default;
 $info:          #E0E0E0 !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
@@ -313,6 +314,7 @@ $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
   "success":    $success,
+  "gray":       $gray,
   "info":       $info,
   "warning":    $warning,
   "danger":     $danger,
@@ -432,7 +434,7 @@ $paragraph-margin-bottom:   1rem !default;
 // scss-docs-start grid-breakpoints
 $grid-breakpoints: (
   xs: 0,
-  sm: 576px,
+  sm: 375px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
@@ -453,8 +455,8 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1000px,
-  xxl: 1110px
+  xl: 1140px,
+  xxl: 1320px
 ) !default;
 // scss-docs-end container-max-widths
 
@@ -578,12 +580,12 @@ $h6-font-size:                $font-size-base !default;
 
 // scss-docs-start font-sizes
 $font-sizes: (
-  1: 40px,
-  2: 32px,
-  3: 24px,
-  4: 20px,
-  5: 16px,
-  6: 14px
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size
 ) !default;
 // scss-docs-end font-sizes
 

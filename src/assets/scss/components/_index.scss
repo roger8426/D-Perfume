@@ -1,8 +1,7 @@
 .bg-home {
-  background-image: url("../images/index1.jpg");
+  background-image: url('../images/index1.jpg');
   background-size: cover;
   height: 870px;
-  width: 100%;
 }
 
 .home-img {
@@ -16,5 +15,45 @@
 .scroll {
   img {
     height: 540px;
+  }
+}
+
+.cart-num {
+  font-size: 12px;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .bg-home {
+    height: 480px;
+  }
+  .home-img {
+    height: 480px;
+
+    &-xl {
+      height: 840px;
+    }
+  }
+
+  .scroll {
+    img {
+      height: 720px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .home-img {
+    height: 350px;
+
+    &-xl {
+      height: 680px;
+    }
+  }
+
+  .scroll {
+    img {
+      height: 480px;
+    }
   }
 }

@@ -1,14 +1,14 @@
 <template>
     <div class="bg-primary py-4">
-        <div class="container">
+        <div class="container-xxl">
             <div class="row text-light">
-                <div class="col-6 d-flex align-items-center">
+                <div class="col d-flex align-items-center justify-content-center">
                     <RouterLink to="/user/D-Perfume" class="me-3">
                         <img src="../assets/images/d’Perfumewhite.png" alt="LOGO">
                     </RouterLink>
                     <p class="fs-6 mb-0 ms-1">© 2020. All Rights Reserved.</p>
                 </div>
-                <div class="col-6">
+                <div class="col d-sm-none d-md-block">
                     <ul class="mb-0 h-100 d-flex justify-content-end align-items-center">
                         <li>
                             <RouterLink to="/user/products">

@@ -6,13 +6,13 @@
             <button type="button" class="btn btn-outline-primary" :class="{ active: tabCheck === '訂單列表' }">訂單列表</button>
         </div>
     </div>
-    <div class="container px-0 cart" v-if="cart.total">
+    <div class="container cart" v-if="cart.total">
         <div v-if="tabCheck === '購物車'">
             <table class="table align-middle">
                 <thead>
                     <tr>
                         <th scope="col" class="col-1"></th>
-                        <th scope="col" class="col-1"></th>
+                        <th scope="col" class="col-1 d-sm-none d-md-table-cell"></th>
                         <th scope="col" class="col-3 ps-5">品名</th>
                         <th scope="col" class="col-2">數量</th>
                         <th scope="col" class="col-2">單價</th>
@@ -25,12 +25,12 @@
                                 <i class="bi bi-x"></i>
                             </button>
                         </th>
-                        <td class="p-0">
+                        <td class="p-0 d-sm-none d-md-block">
                             <a href="#" onclick="return false" @click="routePush(item.product_id)">
                                 <img class="w-100" :src="item.product.imageUrl" alt="">
                             </a>
                         </td>
-                        <td class="ps-5">
+                        <td class="ps-md-5">
                             <a href="#" onclick="return false" class="text-dark" @click="routePush(item.product.title)">
                                 {{ item.product.title }}
                             </a>
@@ -49,18 +49,18 @@
                 </tbody>
             </table>
             <div class="row mb-6">
-                <div class="col-6 d-flex justify-content-between">
-                    <div class="input-group input-group-sm w-50">
+                <div class="col-sm-6 col-md-4 d-flex justify-content-between">
+                    <div class="input-group input-group-sm w-100">
                         <input type="text" class="form-control" placeholder="請輸入優惠碼" v-model="couponCode">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="button" @click="addCoupon"
+                            <button class="btn btn-outline-primary rounded-start-0" type="button" @click="addCoupon"
                             :class="{disabled: !couponCode}">
                                 套用優惠碼
                             </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-sm-6 col-md-5">
                     <div class="pt-2 d-flex justify-content-end">
                         <div class="fw-bold">{{ `總價${' '}${$filters.currency(cart.total)}` }}</div>
                         <div class="ms-3 fw-bold text-success" v-if="cart.total !== cart.final_total">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3 d-sm-block mt-sm-4 mt-md-0 text-sm-end text-md-start">
                     <button class="btn btn-primary" type="button" @click="openCheckModal()">
                         確認訂單
                     </button>
@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="container px-0 mb-6" v-if="tabCheck === '訂單列表'">
+    <div class="container mb-6" v-if="tabCheck === '訂單列表'">
         <div class="container px-0">
             <table class="table mt-4">
                 <thead>
