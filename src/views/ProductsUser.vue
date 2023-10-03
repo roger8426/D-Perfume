@@ -153,18 +153,15 @@ export default {
             })
         },
         addWish(product) {
-            if (!this.wishList[0]) {
-                this.wishList.push(product)
+            let wishCheck = this.wishList.find((item) => {
+                return item.id === product.id
+            })
+            if (wishCheck) {
+                alert("已在願望清單中")
             } else {
-                this.wishList.forEach((item) => {
-                    if (item.id !== product.id) {
-                        this.wishList.push(product)
-                    } else {
-                        alert("已在願望清單中")
-                    }
-                })
+                this.wishList.push(product)
             }
-            this.emitter.emit('wishList', this.wishList)
+            this.emitter.emit('emit-wish-from-nav', this.wishList)
         }
     },
     created() {

@@ -46,7 +46,7 @@ export default {
             isLoading: false,
             btnLoading: false,
             cartNum: 0,
-            wishList: {}
+            wishList: []
         }
     },
     inject: ['emitter'],
@@ -81,16 +81,12 @@ export default {
             })
         },
         addWish() {
-            console.log(this.wishList);
+            // this.emitter.$emit('emit-wish-from-info', this.product)
         }
     },
     created() {
         this.id = this.$route.params.productId
         this.getProduct()
-        this.emitter.on('wishList', (wishList) => {
-            this.wishList = wishList
-            console.log(this.wishList);
-        })
     }
 }
 </script>
