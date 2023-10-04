@@ -13,7 +13,7 @@
                 </div>
                 <div class="d-flex">
                     <input type="number" class="border-primary border-1 rounded-0 rounded-start py-3 ps-4 w-50" min="1"
-                        v-model="qty">
+                        v-model="qty" oninput="this.value=this.value.replace(/[^0-9.]+/g,'');">
                     <button type="button" class="btn btn-primary p-0 rounded-0 rounded-end py-3 w-50" @click="addCart">
                         <div class="spinner-border spinner-border-sm text-dark me-1" role="status" v-if="this.btnLoading">
                             <span class="visually-hidden">Loading...</span>

@@ -38,7 +38,7 @@
                         <td>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" min="1" v-model="item.qty" :disabled="numLoading"
-                                    @change="updateCart(item)">
+                                    @change="updateCart(item)" oninput="this.value=this.value.replace(/[^0-9.]+/g,'');">
                                 <div class="input-group-text">/ 單位</div>
                             </div>
                         </td>
