@@ -1,6 +1,7 @@
 # D-Perfume專案簡介
 
-D-Perfume以Vue3框架為核心，並使用Vue Router進行路由管理，以及Vite系統進行前端建構，與Bootstrap5所開發的包含前後台的香水電商平台。
+D-Perfume以Vue3框架為核心，並使用Vue Router進行路由管理，以及Vite系統進行前端建構，與Bootstrap5所開發的包含前後台的香水電商平台。  
+https://roger8426.github.io/D-Perfume/
 
 ## 前台功能（含RWD）
 
