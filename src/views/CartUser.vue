@@ -31,7 +31,7 @@
                             </a>
                         </td>
                         <td class="ps-md-5">
-                            <a href="#" onclick="return false" class="text-dark" @click="routePush(item.product.title)">
+                            <a href="#" onclick="return false" class="text-dark" @click="routePush(item.product_id)">
                                 {{ item.product.title }}
                             </a>
                         </td>
