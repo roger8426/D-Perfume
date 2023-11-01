@@ -117,6 +117,7 @@ export default {
                     })
                 }
                 this.isLoading = false
+                window.scrollTo(0, 0)
             })
         },
         nowPage(page) {
@@ -132,6 +133,7 @@ export default {
                     return item
                 }
             })
+            window.scrollTo(0, 0)
         },
         getProduct(id) {
             this.$router.push(`/user/product/${id}`)
