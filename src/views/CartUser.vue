@@ -1,12 +1,12 @@
 <template>
     <LoadingView :active="isLoading"></LoadingView>
-    <div class="container">
+    <div class="container-xl">
         <div class="px-0 btn-group mt-6" role="group" aria-label="Basic example" @click="tabSwitch">
             <button type="button" class="btn btn-outline-primary" :class="{ active: tabCheck === '購物車' }">購物車</button>
             <button type="button" class="btn btn-outline-primary" :class="{ active: tabCheck === '訂單列表' }">訂單列表</button>
         </div>
     </div>
-    <div class="container cart" v-if="cart.total">
+    <div class="container-xl cart" v-if="cart.total">
         <div v-if="tabCheck === '購物車'">
             <table class="table align-middle">
                 <thead>
