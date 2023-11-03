@@ -13,13 +13,8 @@ D-Perfume是一個透過 Vue3 + Vite 建立的 SPA 網站。
 
 ## 後台功能
 
-測試用帳號及密碼  
-
-```bash 
-帳號：roger8426@gmail.com  
-密碼：roger5566  
-```
 內容包含商品、訂單及優惠券的增修查改功能。
+
 ## 安裝
 
 以下步驟將引導您如何安裝此專案。  
@@ -55,7 +50,7 @@ npm run dev
 - methods - JavaScript 模組放置處
 - components - 元件放置處  
 - assets - 靜態資源放置處  
-    - scss - scss檔案放置處  
+    - scss - SCSS 檔案放置處  
     - images - 圖片放置處  
 
 ## 相關技術
