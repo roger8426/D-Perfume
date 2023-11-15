@@ -5,5 +5,13 @@ export default defineStore('wishListStore', {
     return {
       wishList: []
     }
+  },
+  getters: {
+    
+  },
+  actions: {
+    wishListUpdate() {
+        this.wishList = JSON.parse(window.localStorage.getItem('wishList')) || []
+    }
   }
 })

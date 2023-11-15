@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { mapState } from 'pinia'
+import { mapState, mapActions } from 'pinia'
 import wishListStore from '@/stores/wishList'
 
 export default {
@@ -133,17 +133,18 @@ export default {
         },
         delWish(key) {
             this.wishList.splice(key, 1)
+            window.localStorage.setItem('wishList', JSON.stringify(this.wishList))
         },
         getProduct(id) {
             this.$router.push(`/user/product/${id}`)
-        }
+        },
+        ...mapActions(wishListStore, ['wishListUpdate'])
     },
     created() {
         this.emitter.on('cart-num', (num) => {
             this.cartNum = num
         })
         this.cartNumber()
-        this.wishList = JSON.parse(window.localStorage.getItem('wishList')) || []
     },
 }
 </script>

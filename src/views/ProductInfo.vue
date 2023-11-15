@@ -21,10 +21,16 @@
                         加入購物車
                     </button>
                 </div>
-                <button type="button" class="btn text-primary p-0 mt-3 me-2 w-50" @click="addWish">
-                    <i class="bi bi-heart-fill me-1"></i>
-                    加入收藏清單
-                </button>
+                <div>
+                    <button type="button" class="btn text-primary p-0 mt-3 me-2 w-50 border-0" v-if="wishbtn" disabled>
+                        <i class="bi bi-heart-fill me-1"></i>
+                        已在願望清單中
+                    </button>
+                    <button type="button" class="btn text-primary p-0 mt-3 me-2 w-50" @click="addWish" v-else>
+                        <i class="bi bi-heart-fill me-1"></i>
+                        加入願望清單
+                    </button>
+                </div>
                 <div class="d-flex flex-column mt-6">
                     <h3 class="fs-5 fw-bold">商品購買須知</h3>
                     <p class="fs-5">商品情境照為示意用，不包含其他配件，商品外觀以廠商實際出貨為主。任何訂單變動均會在出貨訊息內更新。</p>
@@ -37,6 +43,9 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'pinia'
+import wishListStore from '@/stores/wishList'
+
 export default {
     data() {
         return {
@@ -46,8 +55,11 @@ export default {
             isLoading: false,
             btnLoading: false,
             cartNum: 0,
-            wishList: []
+            wishbtn: false
         }
+    },
+    computed: {
+        ...mapState(wishListStore, ['wishList'])
     },
     inject: ['emitter'],
     methods: {
@@ -81,12 +93,23 @@ export default {
             })
         },
         addWish() {
-            this.emitter.$emit('emit-wish-from-info', this.product)
-        }
+            this.wishList.push(this.product)
+            window.localStorage.setItem('wishList', JSON.stringify(this.tempWishList))
+            this.wishCheck()
+        },
+        wishCheck() {
+            this.wishList.find((item) => {
+                if (item.id === this.id) {
+                    this.wishbtn = true
+                }
+            })
+        },
+        ...mapActions(wishListStore, ['wishListUpdate'])
     },
     created() {
         this.id = this.$route.params.productId
         this.getProduct()
+        this.wishCheck()
     }
 }
 </script>
