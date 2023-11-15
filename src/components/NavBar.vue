@@ -93,15 +93,18 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import wishListStore from '@/stores/wishList'
+
 export default {
     data() {
         return {
             cartNum: 0,
-            wishNum: 0,
-            tempWish: {},
-            wishList: [],
             btnLoading: false
         }
+    },
+    computed: {
+        ...mapState(wishListStore, ['wishList'])
     },
     inject: ['emitter'],
     methods: {
@@ -140,12 +143,7 @@ export default {
             this.cartNum = num
         })
         this.cartNumber()
-        this.emitter.on('emit-wish-from-nav', (products) => {
-            this.wishList = products
-        })
-        this.emitter.on('emit-wish-from-info', (product) => {
-            this.tempWish = product
-        })
+        this.wishList = JSON.parse(window.localStorage.getItem('wishList')) || []
     },
 }
 </script>

@@ -66,6 +66,9 @@
 import Page from '../components/PageComponent.vue'
 import Subscribe from '../components/SubScribe.vue'
 
+import { mapState } from 'pinia'
+import wishListStore from '@/stores/wishList'
+
 export default {
     data() {
         return {
@@ -76,11 +79,12 @@ export default {
             isLoading: false,
             btnLoading: false,
             cartNum: 0,
-            pageData: {},
-            wishList: []
+            pageData: {}
         }
     },
-    inject: ['emitter'],
+    computed: {
+        ...mapState(wishListStore, ['wishList'])
+    },
     components: {
         Subscribe,
         Page
@@ -155,15 +159,17 @@ export default {
             })
         },
         addWish(product) {
-            let wishCheck = this.wishList.find((item) => {
+            this.wishList = JSON.parse(window.localStorage.getItem('wishList')) || []
+            const wishCheck = this.wishList.find((item) => {
                 return item.id === product.id
             })
             if (wishCheck) {
                 alert("已在願望清單中")
+                return
             } else {
                 this.wishList.push(product)
+                window.localStorage.setItem('wishList', JSON.stringify(this.wishList))
             }
-            this.emitter.emit('emit-wish-from-nav', this.wishList)
         }
     },
     created() {
