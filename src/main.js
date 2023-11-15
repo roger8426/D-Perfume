@@ -34,10 +34,11 @@ import router from './router'
 import { currency, date } from './methods/filters'
 
 const app = createApp(App)
+const pinia = createPinia()
 
-app.use(createPinia())
 app.config.globalProperties.$filters = { currency, date }
 app.use(router)
+app.use(pinia)
 app.use(VueAxios, axios)
 app.component('LoadingView', Loading)
 app.component('VField', Field)
