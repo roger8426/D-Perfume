@@ -1,1 +1,0 @@
-import{k as t}from"./index-ba954f0e.js";const i=t("wishListStore",{state:()=>({wishList:[]}),getters:{},actions:{wishListUpdate(){this.wishList=JSON.parse(window.localStorage.getItem("wishList"))||[]}}});export{i as w};
