@@ -49,6 +49,7 @@ npm run dev
 - router - 路由管理放置處  
 - methods - JavaScript 模組放置處
 - components - 元件放置處  
+- stores - Pinia Store 放置處  
 - assets - 靜態資源放置處  
     - scss - SCSS 檔案放置處  
     - images - 圖片放置處  
@@ -64,3 +65,4 @@ npm run dev
 - Bootstrap 5  
 - Axios：HTTP 請求工具  
 - Emitter：跨元件資料傳遞工具
+- Pinia：Vue 狀態管理工具
