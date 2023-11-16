@@ -93,20 +93,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'pinia'
+import { mapState, mapWritableState, mapActions } from 'pinia'
 import wishListStore from '@/stores/wishList'
+import cartStore from '@/stores/cart'
 
 export default {
     data() {
         return {
-            cartNum: 0,
             btnLoading: false
         }
     },
     computed: {
-        ...mapState(wishListStore, ['wishList'])
+        ...mapState(wishListStore, ['wishList']),
+        ...mapWritableState(cartStore, ['cartNum'])
     },
-    inject: ['emitter'],
     methods: {
         cartNumber() {
             const api = `${import.meta.env.VITE_API}api/${import.meta.env.VITE_PATH}/cart`
@@ -125,7 +125,6 @@ export default {
                 if (res.data.success) {
                     this.$http.get(api).then((res) => {
                         this.cartNum = res.data.data.carts.length
-                        this.emitter.emit('cart-num', this.cartNum)
                         this.btnLoading = false
                     })
                 }
@@ -141,9 +140,6 @@ export default {
         ...mapActions(wishListStore, ['wishListUpdate'])
     },
     created() {
-        this.emitter.on('cart-num', (num) => {
-            this.cartNum = num
-        })
         this.cartNumber()
     },
 }

@@ -43,8 +43,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'pinia'
+import { mapState, mapWritableState, mapActions } from 'pinia'
 import wishListStore from '@/stores/wishList'
+import cartStore from '@/stores/cart'
 
 export default {
     data() {
@@ -54,14 +55,13 @@ export default {
             qty: 1,
             isLoading: false,
             btnLoading: false,
-            cartNum: 0,
             wishbtn: false
         }
     },
     computed: {
-        ...mapState(wishListStore, ['wishList'])
+        ...mapState(wishListStore, ['wishList']),
+        ...mapWritableState(cartStore, ['cartNum'])
     },
-    inject: ['emitter'],
     methods: {
         getProduct() {
             this.isLoading = true
@@ -85,7 +85,6 @@ export default {
                     this.$http.get(api).then((res) => {
                         if (res.data.success) {
                             this.cartNum = res.data.data.carts.length
-                            this.emitter.emit('cart-num', this.cartNum)
                             this.btnLoading = false
                         }
                     })
