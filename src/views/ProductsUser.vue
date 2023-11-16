@@ -79,8 +79,7 @@ export default {
             brand: ['CHANEL', 'Jo Malone', 'Curology', 'Dior', 'Chloe', 'ZARA', 'TONIK'],
             isLoading: false,
             btnLoading: false,
-            pageData: {},
-            tempWishList: []
+            pageData: {}
         }
     },
     computed: {
@@ -167,8 +166,8 @@ export default {
                 alert("已在願望清單中")
                 return
             } else {
-                this.tempWishList.push(product)
-                window.localStorage.setItem('wishList', JSON.stringify(this.tempWishList))
+                this.wishList.push(product)
+                window.localStorage.setItem('wishList', JSON.stringify(this.wishList))
                 this.wishListUpdate()
             }
         },
